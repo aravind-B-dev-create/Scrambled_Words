@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class = "container bg-dark p-5 ">
+        <h1 class = "text-white text-center">Jumbled Words!</h1>
+    </div>
+    <br>
+    <div class = "container big-light p-2 rounded-2">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+          <div class = "alert alert-primary alert-dismissible fade show" role = "alert">
+            {{message}}
+            <button type = "button" class = "btn-close" data-bs-dismiss = "alert" aria-label = "close"></button>
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <div class = "text-center">
+        <a href = "/play" >
+          <button type = "start" name = "play_game" class = "btn btn-primary mb-3"><strong>PLAY</strong></button>
+        </a>
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Add_Words">ADD WORDS</button>
+      </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="Add_Words" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Words</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="Add_Words" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method = "POST">
+                <label for = "word" class = "form-label text-center"><strong>New Word:</strong></label>
+                <textarea name = "word" class = "form-control" id = "contact_name" rows = "3"></textarea>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type = "submit" class = "btn btn-primary"><strong>Add New Word</strong></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>    
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
